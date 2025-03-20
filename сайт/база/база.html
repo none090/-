@@ -1,0 +1,402 @@
+<<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Базы данных для 9 класса</title>
+    <style>
+        /* Сброс отступов и установка высоты body и html на 100% */
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%; /* Минимальная высота для скролла */
+            font-family: Arial, sans-serif;
+            color: #333; /* Темный цвет текста для контраста */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Анимация для фона */
+        body {
+            background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #84fab0);
+            background-size: 400% 400%;
+            animation: GradientBackground 15s ease infinite;
+        }
+
+        @keyframes GradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Контейнер для контента */
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9); /* Белый фон с небольшой прозрачностью */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 800px;
+            margin: 40px 0; /* Добавили отступы сверху и снизу для скролла */
+        }
+
+        /* Заголовок */
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #333; /* Темный цвет текста */
+        }
+
+        /* Теоретический материал */
+        .theory {
+            text-align: left;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333; /* Темный цвет текста */
+            background-color: rgba(255, 255, 255, 0.9); /* Белый фон с небольшой прозрачностью */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .theory h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333; /* Темный цвет текста */
+        }
+
+        .theory p {
+            margin-bottom: 15px;
+        }
+
+        .theory ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .theory ul li {
+            margin-bottom: 5px;
+        }
+
+        .theory code {
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.1); /* Светлый фон для кода */
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9em;
+            margin: 5px 0;
+            color: #333; /* Темный цвет текста */
+        }
+
+        /* Интерактивное задание */
+        .interactive {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .interactive h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .interactive textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .interactive button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .interactive button:hover {
+            background-color: #0056b3;
+        }
+
+        .interactive .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9em;
+            white-space: pre-wrap;
+        }
+
+        /* Таблица Excel */
+        .excel-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .excel-table th, .excel-table td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .excel-table input {
+            width: 100%;
+            padding: 5px;
+            font-size: 1em;
+            border: none;
+            text-align: center;
+        }
+
+        .excel-table input:focus {
+            outline: none;
+            background-color: #f0f8ff;
+        }
+
+        .excel-table th {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Базы данных</h1>
+        <div class="theory">
+            <h2>Что такое база данных?</h2>
+            <p>
+                База данных (БД) — это место, где хранится информация. Например, это может быть список учеников в школе, где у каждого есть имя, фамилия, класс и оценки.
+            </p>
+
+            <h2>Основные понятия</h2>
+            <ul>
+                <li><strong>Таблица</strong> — это как лист в Excel. В таблице есть строки и столбцы. Например, таблица "Ученики" может содержать столбцы: "Имя", "Фамилия", "Класс".</li>
+                <li><strong>Запись</strong> — это одна строка в таблице. Например, запись о ученике: "Иван", "Иванов", "9А".</li>
+                <li><strong>Поле</strong> — это столбец в таблице. Например, поле "Имя" содержит имена всех учеников.</li>
+                <li><strong>Ключ</strong> — это уникальный идентификатор. Например, у каждого ученика может быть уникальный номер (ID), который помогает отличать их друг от друга.</li>
+            </ul>
+
+            <h2>SQL — язык для работы с базами данных</h2>
+            <p>
+                SQL (Structured Query Language) — это язык, который помогает работать с базами данных. С его помощью можно:
+            </p>
+            <ul>
+                <li>Создавать таблицы.</li>
+                <li>Добавлять, удалять и изменять данные.</li>
+                <li>Искать информацию.</li>
+            </ul>
+            <p>
+                Пример SQL-запроса для поиска всех учеников из 9А класса:
+                <code>SELECT * FROM Ученики WHERE Класс = '9А';</code>
+            </p>
+        </div>
+
+        <!-- Интерактивное задание -->
+        <div class="interactive">
+            <h2>Попробуй сам!</h2>
+            <p>
+                Введи SQL-запрос ниже и нажми "Выполнить", чтобы увидеть результат. Пример запроса:
+                <code>SELECT * FROM Ученики WHERE Класс = '9А';</code>
+            </p>
+            <textarea id="sqlQuery" placeholder="Введите SQL-запрос"></textarea>
+            <button onclick="executeQuery()">Выполнить</button>
+            <div class="result" id="result">
+                Результат появится здесь...
+            </div>
+        </div>
+
+        <!-- Сложная задача с таблицей Excel -->
+        <div class="interactive">
+            <h2>Сложная задача: Анализ данных</h2>
+            <p>
+                Заполните таблицу ниже данными об учениках. Затем выполните SQL-запрос, чтобы проанализировать данные. Например:
+                <code>SELECT * FROM Ученики WHERE Оценка >= 4 ORDER BY Класс;</code>
+            </p>
+            <table class="excel-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>Класс</th>
+                        <th>Оценка</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" id="id1" placeholder="1"></td>
+                        <td><input type="text" id="name1" placeholder="Иван"></td>
+                        <td><input type="text" id="surname1" placeholder="Иванов"></td>
+                        <td><input type="text" id="class1" placeholder="9А"></td>
+                        <td><input type="text" id="grade1" placeholder="5"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="id2" placeholder="2"></td>
+                        <td><input type="text" id="name2" placeholder="Мария"></td>
+                        <td><input type="text" id="surname2" placeholder="Петрова"></td>
+                        <td><input type="text" id="class2" placeholder="9Б"></td>
+                        <td><input type="text" id="grade2" placeholder="4"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="id3" placeholder="3"></td>
+                        <td><input type="text" id="name3" placeholder="Алексей"></td>
+                        <td><input type="text" id="surname3" placeholder="Сидоров"></td>
+                        <td><input type="text" id="class3" placeholder="9А"></td>
+                        <td><input type="text" id="grade3" placeholder="3"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="id4" placeholder="4"></td>
+                        <td><input type="text" id="name4" placeholder="Елена"></td>
+                        <td><input type="text" id="surname4" placeholder="Козлова"></td>
+                        <td><input type="text" id="class4" placeholder="9В"></td>
+                        <td><input type="text" id="grade4" placeholder="5"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="id5" placeholder="5"></td>
+                        <td><input type="text" id="name5" placeholder="Дмитрий"></td>
+                        <td><input type="text" id="surname5" placeholder="Смирнов"></td>
+                        <td><input type="text" id="class5" placeholder="9А"></td>
+                        <td><input type="text" id="grade5" placeholder="4"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button onclick="analyzeData()" style="margin-top: 20px;">Анализировать данные</button>
+            <div class="result" id="analysisResult">
+                Результат анализа появится здесь...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Функция для выполнения SQL-запроса
+        function executeQuery() {
+            const query = document.getElementById("sqlQuery").value.trim();
+            const resultDiv = document.getElementById("result");
+
+            if (!query) {
+                resultDiv.textContent = "Ошибка: Введите SQL-запрос.";
+                return;
+            }
+
+            // Получаем данные из таблицы
+            const students = getTableData();
+
+            // Простая симуляция SQL-запроса
+            try {
+                if (query.toUpperCase().startsWith("SELECT")) {
+                    let filteredStudents = students;
+
+                    // Обработка условий WHERE
+                    if (query.includes("WHERE")) {
+                        const condition = query.split("WHERE")[1].trim();
+                        const conditions = condition.split("AND").map(c => c.trim());
+
+                        conditions.forEach(cond => {
+                            const [field, operator, value] = cond.split(/\s+/).map(s => s.trim().replace(/'/g, ""));
+                            filteredStudents = filteredStudents.filter(student => {
+                                switch (operator) {
+                                    case "=":
+                                        return student[field.toLowerCase()] === value;
+                                    case ">":
+                                        return student[field.toLowerCase()] > parseFloat(value);
+                                    case "<":
+                                        return student[field.toLowerCase()] < parseFloat(value);
+                                    case ">=":
+                                        return student[field.toLowerCase()] >= parseFloat(value);
+                                    case "<=":
+                                        return student[field.toLowerCase()] <= parseFloat(value);
+                                    default:
+                                        return true;
+                                }
+                            });
+                        });
+                    }
+
+                    // Обработка ORDER BY
+                    if (query.includes("ORDER BY")) {
+                        const orderBy = query.split("ORDER BY")[1].trim();
+                        const [field, direction] = orderBy.split(/\s+/).map(s => s.trim());
+                        filteredStudents.sort((a, b) => {
+                            if (direction && direction.toUpperCase() === "DESC") {
+                                return b[field.toLowerCase()] > a[field.toLowerCase()] ? 1 : -1;
+                            } else {
+                                return a[field.toLowerCase()] > b[field.toLowerCase()] ? 1 : -1;
+                            }
+                        });
+                    }
+
+                    displayResult(filteredStudents, resultDiv);
+                } else {
+                    resultDiv.textContent = "Ошибка: Поддерживаются только SELECT-запросы.";
+                }
+            } catch (error) {
+                resultDiv.textContent = "Ошибка: Неверный синтаксис SQL-запроса.";
+            }
+        }
+
+        // Функция для анализа данных из таблицы
+        function analyzeData() {
+            const students = getTableData();
+            const analysisResultDiv = document.getElementById("analysisResult");
+
+            // Пример анализа: средняя оценка по классам
+            const classGrades = {};
+            students.forEach(student => {
+                if (!classGrades[student.class]) {
+                    classGrades[student.class] = [];
+                }
+                classGrades[student.class].push(parseInt(student.grade));
+            });
+
+            let result = "Средняя оценка по классам:\n";
+            for (const className in classGrades) {
+                const average = (classGrades[className].reduce((a, b) => a + b, 0) / classGrades[className].length;
+                result += `${className}: ${average.toFixed(2)}\n`;
+            }
+
+            analysisResultDiv.textContent = result;
+        }
+
+        // Функция для получения данных из таблицы
+        function getTableData() {
+            const students = [];
+            for (let i = 1; i <= 5; i++) {
+                students.push({
+                    id: document.getElementById(`id${i}`).value,
+                    name: document.getElementById(`name${i}`).value,
+                    surname: document.getElementById(`surname${i}`).value,
+                    class: document.getElementById(`class${i}`).value,
+                    grade: document.getElementById(`grade${i}`).value,
+                });
+            }
+            return students;
+        }
+
+        // Функция для отображения результата
+        function displayResult(data, resultDiv) {
+            if (data.length === 0) {
+                resultDiv.textContent = "Нет данных, соответствующих запросу.";
+            } else {
+                resultDiv.textContent = JSON.stringify(data, null, 2);
+            }
+        }
+    </script>
+</body>
+</html>

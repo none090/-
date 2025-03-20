@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кибербезопасность для 9 класса</title>
+    <style>
+        /* Сброс отступов и установка высоты body и html на 100% */
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%; /* Минимальная высота для скролла */
+            font-family: Arial, sans-serif;
+            color: #333; /* Темный цвет текста для контраста */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Анимация для фона */
+        body {
+            background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #84fab0);
+            background-size: 400% 400%;
+            animation: GradientBackground 15s ease infinite;
+        }
+
+        @keyframes GradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Контейнер для контента */
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9); /* Белый фон с небольшой прозрачностью */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 800px;
+            margin: 40px 0; /* Добавили отступы сверху и снизу для скролла */
+        }
+
+        /* Заголовок */
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #333; /* Темный цвет текста */
+        }
+
+        /* Теоретический материал */
+        .theory {
+            text-align: left;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333; /* Темный цвет текста */
+            background-color: rgba(255, 255, 255, 0.9); /* Белый фон с небольшой прозрачностью */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .theory h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333; /* Темный цвет текста */
+        }
+
+        .theory p {
+            margin-bottom: 15px;
+        }
+
+        .theory ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .theory ul li {
+            margin-bottom: 5px;
+        }
+
+        .theory code {
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.1); /* Светлый фон для кода */
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9em;
+            margin: 5px 0;
+            color: #333; /* Темный цвет текста */
+        }
+
+        /* Сложная задача */
+        .task {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .task h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .task p {
+            margin-bottom: 15px;
+        }
+
+        .task label {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .task label:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .task input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .task button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .task button:hover {
+            background-color: #0056b3;
+        }
+
+        .task .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 0.9em;
+            white-space: pre-wrap;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Иконки для мер безопасности */
+        .task label::before {
+            content: "🔒";
+            margin-right: 10px;
+        }
+
+        .task label[for="password"]::before {
+            content: "❌";
+        }
+
+        .task label[for="updates"]::before {
+            content: "⚠️";
+        }
+
+        /* Новая задача: Фишинговое письмо */
+        .phishing-task {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .phishing-task h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .phishing-task .email {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .phishing-task .email h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .phishing-task .email p {
+            margin: 5px 0;
+        }
+
+        .phishing-task .email .sender {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .phishing-task .email .subject {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .phishing-task .email .body {
+            margin-top: 15px;
+        }
+
+        .phishing-task .options {
+            margin-top: 20px;
+        }
+
+        .phishing-task .options label {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .phishing-task .options label:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .phishing-task .options input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .phishing-task .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 0.9em;
+            white-space: pre-wrap;
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Кибербезопасность</h1>
+
+        <!-- Дополнительная теория -->
+        <div class="theory">
+            <h2>Что такое кибербезопасность?</h2>
+            <p>
+                Кибербезопасность — это защита компьютеров, сетей, программ и данных от вредоносных атак, несанкционированного доступа и других угроз. Она важна для защиты личной информации, финансовых данных и даже национальной безопасности.
+            </p>
+
+            <h2>Основные угрозы в интернете</h2>
+            <ul>
+                <li><strong>Вирусы и вредоносное ПО</strong> — программы, которые могут повредить ваш компьютер или украсть данные.</li>
+                <li><strong>Фишинг</strong> — мошеннические письма или сайты, которые пытаются украсть ваши пароли и личные данные.</li>
+                <li><strong>Хакерские атаки</strong> — взломы систем для кражи информации или вывода их из строя.</li>
+                <li><strong>Кибербуллинг</strong> — травля и преследование в интернете.</li>
+            </ul>
+
+            <h2>Как защитить себя?</h2>
+            <ul>
+                <li>Используйте сложные пароли и не делитесь ими ни с кем.</li>
+                <li>Не открывайте подозрительные письма и не переходите по неизвестным ссылкам.</li>
+                <li>Устанавливайте антивирусное ПО и регулярно обновляйте его.</li>
+                <li>Не публикуйте личную информацию в интернете.</li>
+                <li>Используйте двухфакторную аутентификацию для важных аккаунтов.</li>
+            </ul>
+
+            <h2>Что такое фишинг?</h2>
+            <p>
+                Фишинг — это вид мошенничества, при котором злоумышленники пытаются получить доступ к вашим личным данным, таким как пароли, номера банковских карт или паспортные данные. Обычно это делается через поддельные письма, сообщения или сайты, которые выглядят как настоящие.
+            </p>
+            <p>
+                <strong>Пример фишинга:</strong> Письмо от "банка", в котором вас просят перейти по ссылке и ввести свои данные для "разблокировки аккаунта". На самом деле это мошенники, которые хотят украсть ваши данные.
+            </p>
+
+            <h2>Как распознать фишинг?</h2>
+            <ul>
+                <li>Проверяйте адрес отправителя. Фишинговые письма часто приходят с подозрительных адресов.</li>
+                <li>Не переходите по ссылкам в письмах, если не уверены в их безопасности.</li>
+                <li>Обращайте внимание на ошибки в тексте. Фишинговые письма часто содержат грамматические и орфографические ошибки.</li>
+                <li>Если сомневаетесь, свяжитесь с организацией напрямую через официальный сайт или телефон.</li>
+            </ul>
+        </div>
+
+        <!-- Сложная задача: Защити систему -->
+        <div class="task">
+            <h2>Сложная задача: Защити систему!</h2>
+            <p>
+                Вы — администратор компании. Вам нужно защитить корпоративную сеть от кибератак. Выберите правильные меры безопасности:
+            </p>
+            <form id="securityForm">
+                <label for="firewall">
+                    <input type="checkbox" id="firewall" name="measure" value="firewall"> Установить фаервол
+                </label>
+                <label for="antivirus">
+                    <input type="checkbox" id="antivirus" name="measure" value="antivirus"> Установить антивирусное ПО
+                </label>
+                <label for="backup">
+                    <input type="checkbox" id="backup" name="measure" value="backup"> Регулярно делать резервные копии данных
+                </label>
+                <label for="training">
+                    <input type="checkbox" id="training" name="measure" value="training"> Провести обучение сотрудников по кибербезопасности
+                </label>
+                <label for="password">
+                    <input type="checkbox" id="password" name="measure" value="password"> Использовать простые пароли для удобства
+                </label>
+                <label for="updates">
+                    <input type="checkbox" id="updates" name="measure" value="updates"> Игнорировать обновления программ
+                </label>
+            </form>
+            <button onclick="checkSecurity()">Проверить</button>
+            <div class="result" id="taskResult">
+                Результат появится здесь...
+            </div>
+        </div>
+
+        <!-- Новая задача: Фишинговое письмо -->
+        <div class="phishing-task">
+            <h2>Задача: Распознай фишинговое письмо!</h2>
+            <p>
+                Вам пришло письмо. Определите, является ли оно фишинговым, и выберите правильные действия.
+            </p>
+            <div class="email">
+                <h3>Письмо</h3>
+                <p class="sender">От: support@bank.ru</p>
+                <p class="subject">Тема: Срочно! Ваш аккаунт заблокирован</p>
+                <div class="body">
+                    <p>Уважаемый клиент,</p>
+                    <p>Ваш аккаунт был заблокирован из-за подозрительной активности. Для разблокировки перейдите по ссылке:</p>
+                    <p><a href="#">https://fake-bank.ru/unlock</a></p>
+                    <p>Если вы не выполните это действие в течение 24 часов, ваш аккаунт будет удален.</p>
+                    <p>С уважением, Служба поддержки.</p>
+                </div>
+            </div>
+            <div class="options">
+                <label>
+                    <input type="radio" name="action" value="click"> Перейти по ссылке и разблокировать аккаунт
+                </label>
+                <label>
+                    <input type="radio" name="action" value="ignore"> Игнорировать письмо
+                </label>
+                <label>
+                    <input type="radio" name="action" value="report"> Сообщить в службу безопасности
+                </label>
+            </div>
+            <button onclick="checkPhishing()">Проверить</button>
+            <div class="result" id="phishingResult">
+                Результат появится здесь...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Функция для проверки выбранных мер безопасности
+        function checkSecurity() {
+            const form = document.getElementById("securityForm");
+            const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+            const resultDiv = document.getElementById("taskResult");
+
+            let correct = 0;
+            let incorrect = 0;
+
+            checkboxes.forEach(checkbox => {
+                const value = checkbox.value;
+                if (
+                    (value === "firewall" && checkbox.checked) ||
+                    (value === "antivirus" && checkbox.checked) ||
+                    (value === "backup" && checkbox.checked) ||
+                    (value === "training" && checkbox.checked)
+                ) {
+                    correct++;
+                } else if (
+                    (value === "password" && checkbox.checked) ||
+                    (value === "updates" && checkbox.checked)
+                ) {
+                    incorrect++;
+                }
+            });
+
+            if (incorrect > 0) {
+                resultDiv.textContent = "Ошибка! Вы выбрали небезопасные меры. Пересмотрите свои решения.";
+                resultDiv.style.backgroundColor = "#ffebee"; /* Красный фон для ошибки */
+            } else if (correct >= 4) {
+                resultDiv.textContent = "Отлично! Вы выбрали все правильные меры безопасности.";
+                resultDiv.style.backgroundColor = "#e8f5e9"; /* Зеленый фон для успеха */
+            } else {
+                resultDiv.textContent = "Хорошо, но можно лучше. Вы выбрали не все необходимые меры.";
+                resultDiv.style.backgroundColor = "#fff3e0"; /* Оранжевый фон для предупреждения */
+            }
+        }
+
+        // Функция для проверки задачи с фишинговым письмом
+        function checkPhishing() {
+            const selectedAction = document.querySelector('input[name="action"]:checked');
+            const resultDiv = document.getElementById("phishingResult");
+
+            if (!selectedAction) {
+                resultDiv.textContent = "Ошибка: Выберите действие.";
+                return;
+            }
+
+            if (selectedAction.value === "report") {
+                resultDiv.textContent = "Правильно! Вы выбрали безопасное действие. Фишинговые письма нужно сообщать в службу безопасности.";
+                resultDiv.style.backgroundColor = "#e8f5e9"; /* Зеленый фон для успеха */
+            } else {
+                resultDiv.textContent = "Ошибка! Это фишинговое письмо. Не переходите по ссылкам и не отвечайте на него.";
+                resultDiv.style.backgroundColor = "#ffebee"; /* Красный фон для ошибки */
+            }
+        }
+    </script>
+</body>
+</html>

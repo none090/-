@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Работа с текстом</title>
+    <style>
+        /* Сброс отступов и установка высоты body и html на 100% */
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%; /* Минимальная высота для скролла */
+            font-family: Arial, sans-serif;
+            color: #333; /* Темный цвет текста для контраста */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Анимация для фона */
+        body {
+            background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #84fab0);
+            background-size: 400% 400%;
+            animation: GradientBackground 15s ease infinite;
+        }
+
+        @keyframes GradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Контейнер для контента */
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9); /* Белый фон с небольшой прозрачностью */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 800px;
+            margin: 40px 0; /* Добавили отступы сверху и снизу для скролла */
+        }
+
+        /* Заголовок */
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #333; /* Темный цвет текста */
+        }
+
+        /* Теоретический материал */
+        .theory {
+            text-align: left;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333; /* Темный цвет текста */
+            background-color: rgba(255, 255, 255, 0.9); /* Белый фон с небольшой прозрачностью */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .theory h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333; /* Темный цвет текста */
+        }
+
+        .theory p {
+            margin-bottom: 15px;
+        }
+
+        .theory ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .theory ul li {
+            margin-bottom: 5px;
+        }
+
+        .theory code {
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.1); /* Светлый фон для кода */
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9em;
+            margin: 5px 0;
+            color: #333; /* Темный цвет текста */
+        }
+
+        /* Интерактивное задание */
+        .interactive {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .interactive h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .interactive .text-to-copy {
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .interactive textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            resize: vertical;
+        }
+
+        .interactive button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .interactive button:hover {
+            background-color: #0056b3;
+        }
+
+        .interactive .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9em;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Работа с текстом</h1>
+        <div class="theory">
+            <h2>Что такое работа с текстом?</h2>
+            <p>
+                Работа с текстом — это процесс создания, редактирования, анализа и оформления текстовых материалов. 
+                Она включает в себя множество аспектов, таких как грамотное написание, стилистика, структурирование 
+                информации и адаптация текста под целевую аудиторию.
+            </p>
+
+            <h2>Основные этапы работы с текстом</h2>
+            <ul>
+                <li><strong>Написание:</strong> создание текста на основе поставленной задачи или темы.</li>
+                <li><strong>Редактирование:</strong> проверка текста на ошибки, улучшение стиля и структуры.</li>
+                <li><strong>Форматирование:</strong> оформление текста для удобства чтения (заголовки, списки, абзацы).</li>
+                <li><strong>Анализ:</strong> оценка качества текста, его соответствия целям и аудитории.</li>
+            </ul>
+
+            <h2>Примеры инструментов для работы с текстом</h2>
+            <p>
+                Для работы с текстом используются различные инструменты:
+            </p>
+            <ul>
+                <li><strong>Текстовые редакторы:</strong> Microsoft Word, Google Docs, Notepad++.</li>
+                <li><strong>Онлайн-сервисы:</strong> Grammarly (для проверки грамматики), Hemingway Editor (для улучшения стиля).</li>
+                <li><strong>Программы для анализа текста:</strong> AntConc (для лингвистического анализа).</li>
+            </ul>
+
+            <h2>Стилистика текста</h2>
+            <p>
+                Стилистика — это раздел языкознания, изучающий выразительные средства языка и их использование в тексте. 
+                Основные стили текста:
+            </p>
+            <ul>
+                <li><strong>Научный стиль:</strong> используется в научных работах, статьях, диссертациях. Характеризуется точностью, логичностью, использованием терминов.</li>
+                <li><strong>Официально-деловой стиль:</strong> применяется в документах, заявлениях, договорах. Отличается строгостью, стандартными формулировками.</li>
+                <li><strong>Публицистический стиль:</strong> используется в СМИ, статьях, блогах. Характеризуется эмоциональностью, убедительностью.</li>
+                <li><strong>Художественный стиль:</strong> применяется в литературе. Отличается образностью, использованием выразительных средств языка.</li>
+                <li><strong>Разговорный стиль:</strong> используется в повседневном общении. Характеризуется простотой, эмоциональностью.</li>
+            </ul>
+
+            <h2>Грамматика и пунктуация</h2>
+            <p>
+                Грамматика и пунктуация — важные аспекты работы с текстом. Они обеспечивают правильность и ясность изложения. 
+                Основные правила:
+            </p>
+            <ul>
+                <li><strong>Грамматика:</strong> правильное использование частей речи, согласование слов в предложении.</li>
+                <li><strong>Пунктуация:</strong> правильная расстановка знаков препинания (запятые, точки, тире и т.д.).</li>
+            </ul>
+
+            <h2>Структура текста</h2>
+            <p>
+                Хорошо структурированный текст легче воспринимается. Основные элементы структуры:
+            </p>
+            <ul>
+                <li><strong>Заголовок:</strong> кратко отражает тему текста.</li>
+                <li><strong>Введение:</strong> вводная часть, которая знакомит читателя с темой.</li>
+                <li><strong>Основная часть:</strong> раскрывает тему, содержит аргументы и примеры.</li>
+                <li><strong>Заключение:</strong> подводит итоги, делает выводы.</li>
+            </ul>
+        </div>
+
+        <!-- Первое задание -->
+        <div class="interactive">
+            <h2>Задание 1: Воспроизведение текста</h2>
+            <p>
+                Прочитайте текст ниже, а затем введите его точь-в-точь в поле для ввода. 
+                После нажмите кнопку "Проверить", чтобы узнать результат.
+            </p>
+            <div class="text-to-copy">
+                <p>
+                    Работа с текстом — это важный навык, который помогает эффективно передавать информацию. 
+                    Она включает в себя не только написание, но и редактирование, форматирование и анализ текста. 
+                    Чтобы текст был понятным и интересным, важно учитывать его структуру и стиль.
+                </p>
+            </div>
+            <textarea id="userInput1" placeholder="Введите текст здесь..."></textarea>
+            <button onclick="checkText(1)">Проверить</button>
+            <div class="result" id="result1">
+                Результат появится здесь...
+            </div>
+        </div>
+
+        <!-- Второе задание -->
+        <div class="interactive">
+            <h2>Задание 2: Воспроизведение текста</h2>
+            <p>
+                Прочитайте текст ниже, а затем введите его точь-в-точь в поле для ввода. 
+                После нажмите кнопку "Проверить", чтобы узнать результат.
+            </p>
+            <div class="text-to-copy">
+                <p>
+                    Грамотное написание текста требует внимания к деталям. 
+                    Важно не только правильно подбирать слова, но и следить за структурой предложений. 
+                    Хороший текст всегда логичен и легко воспринимается читателем.
+                </p>
+            </div>
+            <textarea id="userInput2" placeholder="Введите текст здесь..."></textarea>
+            <button onclick="checkText(2)">Проверить</button>
+            <div class="result" id="result2">
+                Результат появится здесь...
+            </div>
+        </div>
+
+        <!-- Третье задание -->
+        <div class="interactive">
+            <h2>Задание 3: Воспроизведение текста</h2>
+            <p>
+                Прочитайте текст ниже, а затем введите его точь-в-точь в поле для ввода. 
+                После нажмите кнопку "Проверить", чтобы узнать результат.
+            </p>
+            <div class="text-to-copy">
+                <p>
+                    Редактирование текста — это процесс улучшения его качества. 
+                    Оно включает в себя исправление ошибок, улучшение стиля и структуры. 
+                    Хорошо отредактированный текст становится более понятным и привлекательным.
+                </p>
+            </div>
+            <textarea id="userInput3" placeholder="Введите текст здесь..."></textarea>
+            <button onclick="checkText(3)">Проверить</button>
+            <div class="result" id="result3">
+                Результат появится здесь...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Тексты для проверки
+        const correctTexts = [
+            `Работа с текстом — это важный навык, который помогает эффективно передавать информацию. 
+Она включает в себя не только написание, но и редактирование, форматирование и анализ текста. 
+Чтобы текст был понятным и интересным, важно учитывать его структуру и стиль.`,
+
+            `Грамотное написание текста требует внимания к деталям. 
+Важно не только правильно подбирать слова, но и следить за структурой предложений. 
+Хороший текст всегда логичен и легко воспринимается читателем.`,
+
+            `Редактирование текста — это процесс улучшения его качества. 
+Оно включает в себя исправление ошибок, улучшение стиля и структуры. 
+Хорошо отредактированный текст становится более понятным и привлекательным.`
+        ];
+
+        // Функция для нормализации текста (удаление лишних пробелов и переносов строк)
+        function normalizeText(text) {
+            return text
+                .replace(/\s+/g, ' ') // Заменяем множественные пробелы на один
+                .replace(/\n/g, ' ')  // Убираем переносы строк
+                .trim();              // Убираем пробелы в начале и конце
+        }
+
+        // Функция для проверки текста
+        function checkText(taskNumber) {
+            const userText = document.getElementById(`userInput${taskNumber}`).value;
+            const resultDiv = document.getElementById(`result${taskNumber}`);
+
+            // Нормализуем оба текста перед сравнением
+            const normalizedUserText = normalizeText(userText);
+            const normalizedCorrectText = normalizeText(correctTexts[taskNumber - 1]);
+
+            if (normalizedUserText === normalizedCorrectText) {
+                resultDiv.textContent = "Правильно! Вы точно воспроизвели текст.";
+                resultDiv.style.color = "green";
+            } else {
+                resultDiv.textContent = "Ошибка! Текст не совпадает. Попробуйте еще раз.";
+                resultDiv.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
